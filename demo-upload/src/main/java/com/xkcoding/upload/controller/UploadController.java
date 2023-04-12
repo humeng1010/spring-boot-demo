@@ -36,15 +36,15 @@ public class UploadController {
     @Value("${spring.servlet.multipart.location}")
     private String fileTempPath;
 
-    @Value("${qiniu.prefix}")
-    private String prefix;
+//    @Value("${qiniu.prefix}")
+//    private String prefix;
 
-    private final IQiNiuService qiNiuService;
+//    private final IQiNiuService qiNiuService;
 
-    @Autowired
-    public UploadController(IQiNiuService qiNiuService) {
-        this.qiNiuService = qiNiuService;
-    }
+//    @Autowired
+//    public UploadController(IQiNiuService qiNiuService) {
+//        this.qiNiuService = qiNiuService;
+//    }
 
     @PostMapping(value = "/local", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public Dict local(@RequestParam("file") MultipartFile file) {
@@ -66,8 +66,8 @@ public class UploadController {
         return Dict.create().set("code", 200).set("message", "上传成功").set("data", Dict.create().set("fileName", fileName).set("filePath", localFilePath));
     }
 
-    @PostMapping(value = "/yun", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Dict yun(@RequestParam("file") MultipartFile file) {
+//    @PostMapping(value = "/yun", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    /*public Dict yun(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
             return Dict.create().set("code", 400).set("message", "文件内容为空");
         }
@@ -97,5 +97,5 @@ public class UploadController {
             log.error("【文件上传至七牛云】失败，绝对路径：{}", localFilePath);
             return Dict.create().set("code", 500).set("message", "文件上传失败");
         }
-    }
+    }*/
 }

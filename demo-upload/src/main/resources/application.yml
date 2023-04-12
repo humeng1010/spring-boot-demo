@@ -15,6 +15,6 @@ spring:
   servlet:
     multipart:
       enabled: true
-      location: /Users/yangkai.shen/Documents/code/back-end/spring-boot-demo/spring-boot-demo-upload/tmp
+      location: /Users/humeng/Github/spring-boot-demo/demo-upload/tmp
       file-size-threshold: 5MB
       max-file-size: 20MB
